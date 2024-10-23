@@ -1,0 +1,66 @@
+.home-container {
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px; /* Reducing space between categories and products */
+}
+
+.category-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.category-icon p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.product-card {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+p {
+    margin: 5px 0;
+}
+/* UserHome.css */
+.clickable-product-name {
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    color: blue; /* Change color to blue to indicate a link */
+    text-decoration: underline; /* Underline for additional indication */
+}
+
+.clickable-product-name:hover {
+    color: darkblue; /* Change color on hover */
+}
+

@@ -1,0 +1,31 @@
+/* frontend/src/components/Navbar.css */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #ff6347;
+    padding: 10px 0;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px; /* Space between icons */
+}
+
+.nav-icons a {
+    color: white;
+    text-decoration: none;
+}
+.nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: inherit; /* Ensure the text color inherits from parent */
+    text-decoration: underline; /* Optional: gives it a link-like appearance */
+}
+
+.nav-button:hover {
+    color: #007bff; /* Change to your desired hover color */
+    text-decoration: none; /* Remove underline on hover if desired */
+}
+

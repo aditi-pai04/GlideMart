@@ -1,0 +1,88 @@
+/* General page layout */
+.homepage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Title and subtitle styling */
+  .homepage-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+  }
+  
+  .homepage-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  /* Button group styling */
+  .button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .animated-button {
+    background: #ff7f50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.4s ease;
+  }
+  
+  .animated-button:hover {
+    background: #ff6347;
+    transform: scale(1.1);
+  }
+  
+  /* Background animation */
+  .animated-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #ff7f50, transparent);
+    animation: backgroundMove 10s infinite alternate;
+    z-index: -1;
+  }
+  
+  @keyframes backgroundMove {
+    from {
+      background-position: 0% 0%;
+    }
+    to {
+      background-position: 100% 100%;
+    }
+  }
+  
+  /* Responsive for mobile */
+  @media (max-width: 768px) {
+    .homepage-title {
+      font-size: 2rem;
+    }
+  
+    .homepage-subtitle {
+      font-size: 1.2rem;
+    }
+  
+    .animated-button {
+      font-size: 1rem;
+      padding: 12px 20px;
+    }
+  }
+  

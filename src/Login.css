@@ -1,0 +1,101 @@
+/* General styles for the login container */
+.login-container {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #ff7f50, #ff6347);
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    color: #fff;
+}
+
+/* Title style */
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Form group for each input field */
+.login-form .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.login-form label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+/* Input field styling */
+.login-form input {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    outline: none;
+}
+
+/* Focus effect for inputs */
+.login-form input:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Error message styling */
+.error-text {
+    color: #ffcccb;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Login button styles */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: #ff6347;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the button */
+.login-button:hover {
+    background-color: #ffcccb;
+    color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .login-form input {
+        padding: 10px;
+    }
+
+    .login-button {
+        font-size: 1.1rem;
+    }
+}
