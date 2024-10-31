@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 const productRoutes = require('./routes/products'); 
-const wishlistRoutes = require('./routes/wishlist');
-const cartRoutes = require('./routes/cart');
+const wishlistRoutes = require('./routes/wishlist.js');
+const cartRoutes = require('./routes/cart.js');
 const supportRoutes=require('./routes/support')
 // Initialize app
 const app = express();
@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log(err));
-
+console.log(cartRoutes)
 // User routes
 app.use('/api/users', require('./routes/users'));
 app.use('/api/products', productRoutes);

@@ -5,11 +5,14 @@ import './MyCart.css';
 
 const MyCart = () => {
     const location = useLocation();
-    const userId = location.state?.userId; // Access userId from location state
+    const userId = location.state?.userId || localStorage.getItem('userId');
     const [cartItems, setCartItems] = useState([]);
     const [totalAmount, setTotalAmount] = useState(0);
 
     useEffect(() => {
+        if (userId) {
+            localStorage.setItem('userId', userId);
+        }
         const fetchCartItems = async () => {
             if (userId) {
                 try {
@@ -29,7 +32,8 @@ const MyCart = () => {
 
     const calculateTotalAmount = (items) => {
         if (!items) return 0; // Handle case where items might be undefined
-        const total = items.reduce((acc, item) => acc + item.productId.price * item.quantity, 0);
+        console.log()
+        const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
         setTotalAmount(total);
     };
 
@@ -46,10 +50,10 @@ const MyCart = () => {
                     <div className="cart-items">
                         {cartItems.map(item => (
                             <div key={item._id} className="cart-item">
-                                <img src={item.productId.image} alt={item.productId.name} className="cart-item-image" />
+                                <img src={item.image} alt={item.name} className="cart-item-image" />
                                 <div className="cart-item-info">
-                                    <h3>{item.productId.name}</h3>
-                                    <p>Price: ${item.productId.price.toFixed(2)}</p>
+                                    <h3>{item.name}</h3>
+                                    <p>Price: ${item.price.toFixed(2)}</p>
                                     <p>Quantity: {item.quantity}</p>
                                 </div>
                                 <button 

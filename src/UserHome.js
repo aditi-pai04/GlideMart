@@ -7,6 +7,7 @@ const UserHome = () => {
     const location = useLocation();
     const history = useHistory();
     const userId = location.state?.userId; // Access userId from location state
+    console.log(userId)
     const [products, setProducts] = useState([]); // State to hold all products
     const [filteredProducts, setFilteredProducts] = useState([]); // State to hold filtered products
     const [selectedCategory, setSelectedCategory] = useState(''); // State to hold the selected category

@@ -11,7 +11,7 @@ const Navbar = ({ userId }) => {
     const navigateToCart = () => {
         history.push({
             pathname: '/cart',
-            state: { userId }, // Pass userId in location state
+            state: {userId: userId || localStorage.getItem('userId')}, // Pass userId in location state
         });
     };
 
@@ -80,7 +80,7 @@ const Navbar = ({ userId }) => {
                 >
                     <FontAwesomeIcon icon={faHeart} size="2x" />
                 </button>
-                <button 
+                {/* <button 
                     onClick={navigateToProducts} 
                     className={`nav-button ${isActive('/products') ? 'active' : ''}`} 
                     title="Products" 
@@ -88,7 +88,7 @@ const Navbar = ({ userId }) => {
                     aria-label="Products"
                 >
                     <FontAwesomeIcon icon={faBoxes} size="2x" />
-                </button>
+                </button> */}
                 <button 
                     onClick={navigateToSupport} 
                     className={`nav-button ${isActive('/support') ? 'active' : ''}`} 

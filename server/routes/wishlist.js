@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const Product=require('../models/Product')
 
 // Add product to wishlist
 router.post('/add', async (req, res) => {
@@ -34,19 +35,33 @@ router.post('/add', async (req, res) => {
 
 // Get wishlist items
 router.get('/:userId', async (req, res) => {
-    const { userId } = req.params;
-    console.log(userId)
-
     try {
-        const user = await User.findById(userId).populate('wishlist');
+        // Find the user and retrieve their cart
+        const user = await User.findById(req.params.userId);
+        
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        return res.status(200).json({ wishlist: user.wishlist });
-    } catch (err) {
-        console.error('Error fetching wishlist:', err);
-        return res.status(500).json({ message: 'Server error' });
+        // Get product IDs from the cart
+        const productIds = user.wishlist.map(item => item);
+        console.log(productIds)
+
+        // Fetch products from the Product collection that match these IDs
+        const products = await Product.find({ _id: { $in: productIds } });
+
+        // Include quantity with each product from the user's cart
+        const cartItems = user.wishlist.map(cartItem => {
+            const product = products.find(p => p._id.equals(cartItem));
+            return product
+                ? product
+                : null;
+        }).filter(item => item); // Filter out any null products
+
+        res.json({ items: cartItems });
+    } catch (error) {
+        console.error('Error fetching cart:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
     }
 });
 

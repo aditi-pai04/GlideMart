@@ -21,7 +21,7 @@ const MyWishlist = () => {
 
                 const data = await response.json();
                 console.log('Fetched wishlist items:', data);
-                setWishlistItems(data.wishlist || []); // Use 'wishlist' instead of 'items'
+                setWishlistItems(data.items || []); // Use 'wishlist' instead of 'items'
             } catch (err) {
                 console.error('Error fetching wishlist items:', err);
             }
